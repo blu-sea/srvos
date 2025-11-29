@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# srvos build
+
 set -ouex pipefail
 
 ### Install packages
