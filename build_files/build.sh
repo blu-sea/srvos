@@ -11,6 +11,9 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
+# My attempt to add support for older dual xeon/intel chipsets
+dnf5 install -y intel-microcode firmware-linux linux-firmware
+
 # this installs a package from fedora repos
 dnf5 install -y tmux mc
 # this is a quick hack local rpm install, TODO - make the repo work instead so this rpm updates automatically
