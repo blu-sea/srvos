@@ -10,15 +10,25 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 install -y tmux 
+dnf5 install -y tmux mc
+# this is a quick hack local rpm install, TODO - make the repo work instead so this rpm updates automatically
+dnf5 install -y /ctx/nordvpn-4.2.3-1.x86_64.rpm
 
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
 # dnf5 -y install package
+
+# Onedriver
+# Currently broken due dependecies, so disabled
+#dnf5 -y copr enable jstaf/onedriver
+#dnf5 -y install onedriver
+
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
+#
 
-#### Example for enabling a System Unit File
+#### Enable Systemd Unit Files
 
 systemctl enable podman.socket
+systemctl enable nordvpnd
